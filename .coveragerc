@@ -1,0 +1,15 @@
+[report]
+omit = 
+    */tests/*
+    tests.py
+    */migrations/*
+    */__init__.py
+    apps.py
+    admin.py
+    asgi.py
+    wsgi.py
+    settings.py
+    manage.py
+
+[html]
+directory = coverage_html_report
