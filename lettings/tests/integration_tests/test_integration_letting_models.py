@@ -1,5 +1,4 @@
 from django.test import TestCase, Client
-from django.urls import reverse
 from lettings.models import Letting, Address
 from conftest import address
 

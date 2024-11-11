@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from django.http import Http404
 from .models import Letting
+import logging
 
+
+logger = logging.getLogger(__name__)
 
 def index(request):
     """View that displays the index of lettings application with a list of all lettings available.
@@ -26,9 +30,11 @@ def letting(request, letting_id):
     Returns:
         HttpResponse: The HTML page of the letting address.
     """
-    letting = Letting.objects.get(id=letting_id)
-    context = {
-        'title': letting.title,
-        'address': letting.address,
-    }
+    try:
+        letting = Letting.objects.get(id=letting_id)
+    except Letting.DoesNotExist:
+        logger.warning(f'Erreur | Instance de Letting ID n°{letting_id} introuvable.')
+        raise Http404()
+
+    context = {'title': letting.title, 'address': letting.address}
     return render(request, 'lettings/letting.html', context)

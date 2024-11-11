@@ -1,6 +1,14 @@
 import os
-
 from pathlib import Path
+import logging
+
+from dotenv import load_dotenv
+import sentry_sdk
+from sentry_sdk.integrations.logging import LoggingIntegration
+from sentry_sdk.integrations.django import DjangoIntegration
+
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -114,3 +122,32 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static", ]
+
+logging.basicConfig(level=logging.INFO)
+
+sentry_sdk.init(
+    dsn=os.getenv('SENTRY_DSN'),
+    traces_sample_rate=1.0,
+    send_default_pii=True,
+    _experiments={
+        # Set continuous_profiling_auto_start to True
+        # to automatically start the profiler on when
+        # possible.
+        "continuous_profiling_auto_start": True,
+    },
+    integrations=[
+        DjangoIntegration(
+            transaction_style='url',
+            middleware_spans=True,
+            signals_spans=True,
+        ),
+        LoggingIntegration(
+            level=logging.INFO,
+            event_level=logging.WARNING
+        )
+    ],
+)
+
+handler404 = 'oc_lettings_site.views.error_404'
+
+handler500 = 'oc_lettings_site.views.error_500'

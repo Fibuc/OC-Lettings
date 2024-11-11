@@ -1,5 +1,4 @@
 from django.test import Client, TestCase
-from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
 from lettings.models import Letting, Address
 from conftest import address
