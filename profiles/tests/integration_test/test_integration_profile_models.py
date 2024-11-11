@@ -3,11 +3,11 @@ from profiles.models import Profile
 from django.contrib.auth.models import User
 
 
-class profileModelTest(TestCase):
+class ProfileModelTest(TestCase):
 
     def setUp(self):
         self.user = User.objects.create(username='usertest', password='12345!')
-        self.profile = Profile.objects.create(user=self.user,favorite_city='New York')
+        self.profile = Profile.objects.create(user=self.user, favorite_city='New York')
 
     def test_cascade_when_user_delete(self):
         self.user.delete()

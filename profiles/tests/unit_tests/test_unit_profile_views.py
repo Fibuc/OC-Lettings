@@ -9,7 +9,7 @@ class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create(username='usertest', password='12345!')
-        self.profile = Profile.objects.create(user=self.user,favorite_city='New York')
+        self.profile = Profile.objects.create(user=self.user, favorite_city='New York')
 
     def test_letting_index_view(self):
         path = reverse('profiles:index')
