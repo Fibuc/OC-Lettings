@@ -1,0 +1,12 @@
+**/__pycache__
+*.pyc
+venv
+.coverage
+.coveragerc
+staticfiles/
+dockerfile
+docker-compose.yml
+README.md
+/tests/*
+coverage_html_report/
+.gitignore
