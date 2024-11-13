@@ -41,3 +41,6 @@ def letting(request, letting_id):
     return render(request, 'lettings/letting.html', context)
 
 test_without_blank_line = True
+qsdqsdqsdqsdqsdqsd = 1
+qsdqsdqsdqsdqsdqsdsdqsd = 1
+qsdqsdqsdqsdqsdqsdqs = 1
