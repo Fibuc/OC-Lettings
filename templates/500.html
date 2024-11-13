@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Error 404 - Oops..{% endblock title %}
-
+{% load static %}
 {% block content %}
 
 	
@@ -11,7 +11,7 @@
             <p>Something went wrong on our end. Please try again later or go back to the homepage.</p>
         </div>
     </div>
-    <img src="../static/assets/img/page_error_icon.png" alt="page error icon">
+    <img src="{% static 'assets/img/page_error_icon.png' %}" alt="page error icon">
 </div>
 <div class="container px-5 py-5 text-center">
     <div class="justify-content-center">
