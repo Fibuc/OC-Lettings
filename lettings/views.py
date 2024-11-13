@@ -39,3 +39,5 @@ def letting(request, letting_id):
 
     context = {'title': letting.title, 'address': letting.address}
     return render(request, 'lettings/letting.html', context)
+
+test_without_blank_line = True
