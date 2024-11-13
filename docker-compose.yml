@@ -2,6 +2,8 @@ version: '3'
 
 services:
   application:
-    image: fibuc/oc-lettings
+    build: .
     ports:
       - 8000:8000
+    env_file:
+      - .env

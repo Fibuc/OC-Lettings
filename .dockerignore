@@ -4,9 +4,11 @@ venv
 .coverage
 .coveragerc
 staticfiles/
-dockerfile
+Dockerfile
 docker-compose.yml
+.dockerignore
 README.md
 /tests/*
 coverage_html_report/
 .gitignore
+.env
