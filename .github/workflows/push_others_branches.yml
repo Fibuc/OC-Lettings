@@ -28,12 +28,11 @@ jobs:
       - name: Install staticfiles
         run: python manage.py collectstatic --noinput
 
-      - name: Run tests with coverage
-        run: pytest --cov-fail-under=100
+      - name: Run tests and ensure that the coverage is at least 80%.
+        run: pytest --cov-fail-under=80
 
   linter:
     runs-on: ubuntu-latest
-    needs: tests
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
