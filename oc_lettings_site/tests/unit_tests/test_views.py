@@ -24,4 +24,3 @@ class OCLettingTestViews(TestCase):
     def test_500_view(self):
         response = self.client.get(reverse('500'))
         self.assertEqual(response.status_code, 500)
-        

@@ -1,4 +1,5 @@
 from django.test import Client, TestCase
+from django.http import Http404 
 from django.urls import reverse
 from lettings.models import Letting, Address
 from conftest import address
@@ -27,3 +28,9 @@ class TestViews(TestCase):
         self.assertIn(expected_content, content)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "lettings/letting.html")
+
+    @pytest.mark.django_db
+    def test_letting_view_bad_id(self):
+        response = self.client.get(reverse('lettings:letting', args=[999]))
+        self.assertRaises(Http404)
+        self.assertEqual(response.status_code, 404)
