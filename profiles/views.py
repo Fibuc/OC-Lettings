@@ -1,9 +1,10 @@
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from .models import Profile
 import logging
 
 logger = logging.getLogger(__name__)
+
 
 def index(request):
     """View that displays the index of profiles application with a list of all profiles available.
@@ -35,6 +36,5 @@ def profile(request, username):
         logger.warning(f'Erreur | Instance de Profile "{username}" introuvable.')
         raise Http404()
 
-    
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)

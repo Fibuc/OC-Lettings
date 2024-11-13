@@ -6,6 +6,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def index(request):
     """View that displays the index of lettings application with a list of all lettings available.
 

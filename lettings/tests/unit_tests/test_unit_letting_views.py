@@ -1,5 +1,5 @@
 from django.test import Client, TestCase
-from django.http import Http404 
+from django.http import Http404
 from django.urls import reverse
 from lettings.models import Letting, Address
 from conftest import address
