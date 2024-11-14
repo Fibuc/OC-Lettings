@@ -39,8 +39,4 @@ def letting(request, letting_id):
 
     context = {'title': letting.title, 'address': letting.address}
     return render(request, 'lettings/letting.html', context)
-
-test_without_blank_line = True
-qsdqsdqsdqsdqsdqsd = 1
-qsdqsdqsdqsdqsdqsdsdqsd = 1
-qsdqsdqsdqsdqsdqsdqs = 1
+a = a
