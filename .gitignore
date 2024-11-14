@@ -4,3 +4,4 @@ venv
 .coverage
 .env
 staticfiles/
+.secrets
