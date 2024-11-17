@@ -88,6 +88,6 @@ jobs:
         username: ${{ secrets.AWS_USERNAME }}
         key: ${{ secrets.AWS_TOKEN }}
         script: |
-          docker compose down
+          docker-compose down
           docker system prune -a --volumes && docker rmi -f $(docker images -q)
-          docker compose up -d
+          docker-compose up -d
