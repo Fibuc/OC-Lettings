@@ -1,7 +1,6 @@
 services:
   application:
+    env_file: .env
     build: .
-    environment:
-      - SECRET_KEY=${DJANGO_SECRET_KEY}
     ports:
-      - 8000:8000
+      - ${PORT}:8000
