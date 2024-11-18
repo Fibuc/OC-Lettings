@@ -3,10 +3,10 @@ name: Push and deployement
 on:
   push:
     branches:
-    - main
+    - test-pipeline
   pull_request:
     branches:
-    - main
+    - test-pipeline
 
 jobs:
   tests:
@@ -81,6 +81,11 @@ jobs:
     needs: docker-build
     runs-on: ubuntu-latest
     steps:
+    - name: install docker-compose-plugin
+      run: |
+        sudo yum update
+        sudo yum install docker-compose-plugin
+
     - name: executing remote ssh commands using key
       uses: appleboy/ssh-action@v1.2.0
       with:
