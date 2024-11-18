@@ -88,6 +88,7 @@ jobs:
         username: ${{ secrets.AWS_USERNAME }}
         key: ${{ secrets.AWS_TOKEN }}
         script: |
-          docker-compose down
-          docker system prune -a --volumes && docker rmi -f $(docker images -q)
-          docker-compose up -d
+          sudo docker stop lettings
+          sudo docker container prune -f
+          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:latest
+          sudo docker run -d -p 80:8000 --env-file=project/.env --name=lettings ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:latest
