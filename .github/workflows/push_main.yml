@@ -91,7 +91,7 @@ jobs:
           sudo docker stop lettings
           sudo docker container prune -f
           sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:latest
-          sudo echo "DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}" > .env
+          sudo echo "SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}" > .env
           sudo echo "SENTRY_DSN=${{ secrets.SENTRY_DSN }}" >> .env
           sudo echo "DEBUG_STATUS=${{ secrets.DEBUG_STATUS }}" >> .env
           sudo docker run -d -p 80:8000 --env-file=.env --name=lettings ${{ secrets.DOCKERHUB_USERNAME }}/oc-lettings:latest
