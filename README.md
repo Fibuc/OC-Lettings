@@ -1,4 +1,6 @@
-<img src='doc/source/_static/img/logo.png' style='display: block; margin: 20 auto; width: 20%'>
+<div style="text-align: center; margin-bottom: 20px;">
+    <img src="doc/source/_static/img/logo.png" style="width: 20%; height: auto;">
+</div>
 
 # Application OC-Lettings
 
