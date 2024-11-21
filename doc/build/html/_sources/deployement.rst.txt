@@ -62,7 +62,7 @@ Si une action est effectuée sur une autre branche que la branche main, alors ce
    De plus, assurez-vous que les variables d'environnement sont correctement définies dans les *Secrets* GitHub.
 
 Étapes du pipeline
------------
+------------------
 
 1. Tests et linter
 ******************

@@ -10,7 +10,7 @@
 Bienvenue sur la documentation de l'application OC-Lettings
 ===========================================================
 
-.. image:: _static/img/cover.png
+.. image:: _static/img/cover.jpg
    :align: center
 
 Présentation du projet
