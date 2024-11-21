@@ -1,5 +1,5 @@
-<div style="text-align: center; margin-bottom: 20px;">
-    <img src="doc/source/_static/img/logo.png" style="width: 20%; height: auto;">
+<div align="center" style="margin-bottom: 20px;">
+  <img src="doc/source/_static/img/logo.png" style="width: 20%; height: auto;" alt="Logo du site OC Lettings"/>
 </div>
 
 # Application OC-Lettings
